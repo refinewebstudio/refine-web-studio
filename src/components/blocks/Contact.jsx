@@ -6,8 +6,10 @@
 import { storyblokEditable } from '@storyblok/react'
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
+import { TrackingButton } from '../TrackingButton'
 
 export default function Contact({ blok }) {
+  const trackingLocation = 'Contact';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -41,7 +43,7 @@ export default function Contact({ blok }) {
 
   if (submitted) {
     return (
-      <section {...storyblokEditable(blok)} id="contact" className="py-24 bg-gray-50">
+      <section {...storyblokEditable(blok)} id="contact" className="py-24 bg-primary-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white rounded-2xl p-12 shadow-sm">
             <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-6" />
@@ -49,12 +51,14 @@ export default function Contact({ blok }) {
             <p className="text-xl text-gray-600 mb-8">
               We've received your message and will get back to you within 24 hours.
             </p>
-            <button
+            <TrackingButton
+              ctaLocation={{trackingLocation}}
+              ctaText='Send another message'
               onClick={() => setSubmitted(false)}
               className="text-primary-600 hover:text-primary-700 font-medium"
             >
               Send another message
-            </button>
+            </TrackingButton>
           </div>
         </div>
       </section>
@@ -62,14 +66,14 @@ export default function Contact({ blok }) {
   }
 
   return (
-    <section {...storyblokEditable(blok)} id="contact" className="py-24 bg-gray-50">
+    <section {...storyblokEditable(blok)} id="contact" className="py-24 bg-primary-600 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl font-bold text-gray-900">
+          <h2 className="text-4xl font-bold text-white">
             {blok.title || 'Ready to start your project?'}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-white max-w-3xl mx-auto">
             {blok.subtitle || 'Let\'s discuss your vision and create something amazing together. Get in touch for a free consultation.'}
           </p>
         </div>
@@ -91,7 +95,7 @@ export default function Contact({ blok }) {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
+                {/* <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Phone className="h-6 w-6 text-primary-600" />
                   </div>
@@ -99,7 +103,7 @@ export default function Contact({ blok }) {
                     <div className="font-medium text-gray-900">Phone</div>
                     <div className="text-gray-600">+44 121 xxx xxxx</div>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -124,23 +128,23 @@ export default function Contact({ blok }) {
             </div>
 
             {/* Why Choose Us */}
-            <div className="bg-primary-600 rounded-xl p-8 text-white">
+            <div className="bg-white rounded-xl p-8 text-gray-900">
               <h4 className="text-xl font-semibold mb-4">Why work with us?</h4>
               <ul className="space-y-3">
                 <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
                   <span>Free initial consultation</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  <span>2-3 week delivery timeline</span>
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                  <span>Data driven analytics</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
                   <span>Conversion optimization included</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                  <div className="w-2 h-2 bg-black rounded-full"></div>
                   <span>Ongoing support available</span>
                 </li>
               </ul>
@@ -295,7 +299,9 @@ export default function Contact({ blok }) {
                   />
                 </div>
 
-                <button
+                <TrackingButton
+                  ctaLocation={trackingLocation}
+                  ctaText='Send Message'
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full bg-primary-600 text-white py-4 px-6 rounded-lg hover:bg-primary-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
@@ -311,7 +317,7 @@ export default function Contact({ blok }) {
                       <span>Send Message</span>
                     </>
                   )}
-                </button>
+                </TrackingButton>
 
                 <p className="text-sm text-gray-600 text-center">
                   We'll get back to you within 24 hours with a detailed response.

@@ -5,8 +5,10 @@
 import { storyblokEditable } from '@storyblok/react/rsc'
 import Image from 'next/image'
 import { ExternalLink, TrendingUp, Users, Clock } from 'lucide-react'
+import { TrackingButton } from '../TrackingButton'
 
 export default function CaseStudies({ blok }) {
+  const trackingLocation = 'Case Study';
   const caseStudies = [
     {
       title: 'Birmingham Dental Practice',
@@ -115,13 +117,15 @@ export default function CaseStudies({ blok }) {
                 </div>
 
                 {/* CTA */}
-                <a
+                <TrackingButton 
+                  ctaLocation={{trackingLocation}}
+                  ctaText='View Case Study'
                   href={study.url}
                   className="inline-flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-medium"
                 >
                   <span>View case study</span>
                   <ExternalLink className="h-4 w-4" />
-                </a>
+                </TrackingButton>
               </div>
             </div>
           ))}
@@ -129,13 +133,15 @@ export default function CaseStudies({ blok }) {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <a
+          <TrackingButton
+            ctaLocation={{trackingLocation}}
+            ctaText='Start your success story'
             href="#contact"
             className="inline-flex items-center space-x-2 bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-colors duration-200"
           >
             <span>Start your success story</span>
             <TrendingUp className="h-5 w-5" />
-          </a>
+          </TrackingButton>
         </div>
       </div>
     </section>

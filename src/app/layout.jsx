@@ -4,6 +4,9 @@ import Script from 'next/script'
 import './globals.css'
 import StoryblokProvider from '../components/StoryblokProvider'
 import Navigation from '../components/Navigation'
+import Footer from '../components/Footer'
+import Analytics from '../components/Analytics';
+import ScrollTracker from '../components/ScrollTracker';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -49,9 +52,12 @@ export default function RootLayout({ children }) {
         )}
       </head>
       <body className={`${inter.className} bg-white text-gray-900`}>
+        <Analytics />
+        <ScrollTracker />
         <StoryblokProvider>
           <Navigation />
           {children}
+          <Footer />
         </StoryblokProvider>
       </body>
     </html>

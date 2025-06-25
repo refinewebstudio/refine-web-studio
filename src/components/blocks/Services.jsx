@@ -1,11 +1,13 @@
 // ============================================
 // COMPONENTS/BLOCKS/SERVICES.JSX - FIXED
 // ============================================
+import { TrackingButton } from '../TrackingButton'
 import { Globe, ShoppingCart, Camera, BarChart, Wrench, Headphones, ArrowRight } from 'lucide-react'
 
 import { storyblokEditable } from '@storyblok/react/rsc'
 
 export default function Services({ blok }) {
+  const trackingLocation = 'Services';
   const services = [
     {
       icon: Globe,
@@ -107,7 +109,9 @@ export default function Services({ blok }) {
                 
                 <div className="text-2xl font-bold text-gray-900 mb-4">{service.price}</div>
                 
-                <a
+                <TrackingButton
+                  ctaLocation={{trackingLocation}}
+                  ctaText='Get Started'
                   href="#contact"
                   className={`block text-center px-6 py-3 rounded-lg font-medium transition-colors duration-200 ${
                     service.popular
@@ -116,7 +120,7 @@ export default function Services({ blok }) {
                   }`}
                 >
                   Get Started
-                </a>
+                </TrackingButton>
               </div>
             )
           })}
@@ -127,13 +131,15 @@ export default function Services({ blok }) {
           <p className="text-gray-600 mb-6">
             Need something custom? We'd love to discuss your specific requirements.
           </p>
-          <a
+          <TrackingButton
+            ctaLocation={{trackingLocation}}
+            ctaText='Contact us for a custom quote'
             href="#contact"
             className="inline-flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-medium"
           >
             <span>Contact us for a custom quote</span>
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </TrackingButton>
         </div>
       </div>
     </section>

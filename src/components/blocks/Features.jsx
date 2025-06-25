@@ -15,7 +15,10 @@ import {
   Palette
 } from 'lucide-react'
 
+import { TrackingButton } from '../TrackingButton'
+
 export default function Features({ blok }) {
+  const trackingLocation = 'Features';
   const features = [
     {
       icon: Zap,
@@ -136,13 +139,15 @@ export default function Features({ blok }) {
             <p className="text-gray-600 mb-6">
               Let's discuss how these features can transform your business online.
             </p>
-            <a
+            <TrackingButton
+              ctaLocation={{trackingLocation}}
+              ctaText='Start Your Project'
               href="#contact"
               className="inline-flex items-center space-x-2 bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-colors duration-200"
             >
               <span>Start Your Project</span>
               <Zap className="h-5 w-5" />
-            </a>
+            </TrackingButton>
           </div>
         </div>
       </div>

@@ -1,4 +1,6 @@
+
 // components/TrackingButton.jsx
+'use client';
 import { trackCTAClick } from '../lib/analytics';
 
 export const TrackingButton = ({ 

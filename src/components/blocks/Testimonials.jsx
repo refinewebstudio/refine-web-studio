@@ -4,8 +4,10 @@
 // ============================================
 import { storyblokEditable } from '@storyblok/react/rsc'
 import { Star, Quote } from 'lucide-react'
+import { TrackingButton } from '../TrackingButton'
 
 export default function Testimonials({ blok }) {
+  const trackingLocation = 'Testimonials';
   const testimonials = [
     {
       name: 'Sarah Mitchell',

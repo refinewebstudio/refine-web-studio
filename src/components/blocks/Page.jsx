@@ -1,6 +1,7 @@
 // components/blocks/Page.jsx
 
 import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import { TrackingButton } from '../TrackingButton'
 
 export default function Page({ blok }) {
   console.log('Page component received blok:', blok)

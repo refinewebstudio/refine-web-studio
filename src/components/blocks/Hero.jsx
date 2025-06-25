@@ -5,8 +5,10 @@
 
 import { ArrowRight, Play, Star } from 'lucide-react'
 import { storyblokEditable } from '@storyblok/react/rsc'
+import { TrackingButton } from '../TrackingButton'
 
 export default function Hero({ blok }) {
+    const trackingLocation = 'Hero';
     // Handle case where blok might be undefined
     if (!blok) {
       console.warn('Page component: No blok data received')
@@ -42,7 +44,7 @@ export default function Hero({ blok }) {
             {/* Badge */}
             <div className="inline-flex items-center space-x-2 bg-primary-50 text-primary-700 px-4 py-2 rounded-full text-sm font-medium">
               <Star className="h-4 w-4 fill-current" />
-              <span>Award-winning web development</span>
+              <span>Performance optimized web development</span>
             </div>
 
             {/* Headline */}
@@ -67,35 +69,37 @@ export default function Hero({ blok }) {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href={blok?.primary_button_link || '#contact'}
-                className="inline-flex items-center justify-center space-x-2 bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-all duration-200 group text-lg font-semibold"
-              >
+              <TrackingButton 
+                  ctaLocation={{trackingLocation}}
+                  ctaText={blok?.secondary_button_text || 'View Our Work'}
+                  href={blok?.primary_button_link || '#contact'} className="inline-flex items-center justify-center space-x-2 bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-all duration-200 group text-lg font-semibold">
                 <span>{blok?.primary_button_text || 'Start Your Project'}</span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
+              </TrackingButton>
+              <TrackingButton
+                ctaLocation={{trackingLocation}}
+                ctaText={blok?.primary_button_text || 'Start Your Project'}
                 href={blok?.secondary_button_link || '#case-studies'}
                 className="inline-flex items-center justify-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:border-primary-600 hover:text-primary-600 transition-all duration-200 group text-lg font-semibold"
               >
                 <Play className="h-5 w-5" />
                 <span>{blok?.secondary_button_text || 'View Our Work'}</span>
-              </a>
+              </TrackingButton>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">50+</div>
-                <div className="text-gray-600">Websites Built</div>
+                <div className="text-3xl font-bold text-gray-900">8+</div>
+                <div className="text-gray-600">Web development experience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">98%</div>
-                <div className="text-gray-600">Client Satisfaction</div>
+                <div className="text-3xl font-bold text-gray-900">Fast</div>
+                <div className="text-gray-600">Sub-3-second page load times consistently</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">2-3</div>
-                <div className="text-gray-600">Week Delivery</div>
+                <div className="text-3xl font-bold text-gray-900">100%</div>
+                <div className="text-gray-600">Mobile first, responsive design</div>
               </div>
             </div>
           </div>

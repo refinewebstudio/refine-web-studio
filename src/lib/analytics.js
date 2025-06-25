@@ -1,6 +1,13 @@
 // lib/analytics.js
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || "";
-export const CLARITY_PROJECT_ID = process.env.NEXT_PUBLIC_CLARITY_ID || "";
+export const GA_TRACKING_ID =
+  process.env.NODE_ENV === "production"
+    ? process.env.NEXT_PUBLIC_GA_ID_PROD
+    : process.env.NEXT_PUBLIC_GA_ID_DEV;
+
+export const CLARITY_PROJECT_ID =
+  process.env.NODE_ENV === "production"
+    ? process.env.NEXT_PUBLIC_CLARITY_ID_PROD
+    : process.env.NEXT_PUBLIC_CLARITY_ID_DEV;
 
 // Google Analytics 4 functions
 export const gtag = (...args) => {

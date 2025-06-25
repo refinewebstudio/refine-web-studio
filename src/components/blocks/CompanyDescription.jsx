@@ -75,12 +75,12 @@ export default function CompanyDescription({ blok }) {
                 </p>
                 <div className="grid grid-cols-2 gap-4 pt-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold">5+</div>
+                    <div className="text-3xl font-bold">8+</div>
                     <div className="text-sm opacity-80">Years Experience</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold">100%</div>
-                    <div className="text-sm opacity-80">Client Retention</div>
+                    <div className="text-3xl font-bold">Data Driven</div>
+                    <div className="text-sm opacity-80">Web Development</div>
                   </div>
                 </div>
               </div>

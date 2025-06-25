@@ -1,4 +1,5 @@
 // hooks/useScrollTracking.js
+"use client";
 import { useEffect } from "react";
 import { trackScrollDepth } from "../lib/analytics";
 

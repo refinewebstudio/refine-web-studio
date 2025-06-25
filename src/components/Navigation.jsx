@@ -6,8 +6,10 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X, Code2, ArrowRight } from 'lucide-react'
+import { TrackingButton } from './TrackingButton'
 
 export default function Navigation() {
+  const trackingLocation = 'Navigation';
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -49,13 +51,15 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <TrackingButton
+                ctaLocation={{trackingLocation}}
+                ctaText={item.name}
                 key={item.name}
                 href={item.href}
                 className="text-gray-700 hover:text-primary-600 transition-colors duration-200 font-medium"
               >
                 {item.name}
-              </a>
+              </TrackingButton>
             ))}
           </div>
 
@@ -89,14 +93,16 @@ export default function Navigation() {
         <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
           <div className="px-4 py-4 space-y-4">
             {navItems.map((item) => (
-              <a
+              <TrackingButton
+                ctaLocation={{trackingLocation}}
+                ctaText={item.name}
                 key={item.name}
                 href={item.href}
                 className="block text-gray-700 hover:text-primary-600 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </TrackingButton>
             ))}
             <Link
               href="#contact"

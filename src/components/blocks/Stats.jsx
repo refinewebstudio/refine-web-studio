@@ -4,8 +4,10 @@
 // ============================================
 import { storyblokEditable } from '@storyblok/react/rsc'
 import { TrendingUp, Users, Clock, Award } from 'lucide-react'
+import { TrackingButton } from '../TrackingButton'
 
 export default function Stats({ blok }) {
+  const trackingLocation = 'Stats';
   const stats = [
     {
       icon: TrendingUp,

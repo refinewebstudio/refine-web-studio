@@ -2,9 +2,11 @@
 // COMPONENTS/BLOCKS/TECHSTACK.JSX - FIXED
 // ============================================
 import { Code2, Smartphone, Zap, Shield, Search, BarChart3 } from 'lucide-react'
+import { TrackingButton } from '../TrackingButton'
 import { storyblokEditable } from '@storyblok/react/rsc'
 
 export default function TechStack({ blok }) {
+  const trackingLocation = 'Tech Stack';
   const technologies = [
     {
       icon: Code2,
@@ -41,7 +43,7 @@ export default function TechStack({ blok }) {
   const techLogos = [
     { name: 'Next.js', logo: '▲' },
     { name: 'React', logo: '⚛' },
-    { name: 'TypeScript', logo: 'TS' },
+    { name: 'GrowthBook', logo: '📊' },
     { name: 'Tailwind', logo: '🎨' },
     { name: 'Storyblok', logo: '📝' },
     { name: 'Vercel', logo: '▽' }
@@ -98,13 +100,15 @@ export default function TechStack({ blok }) {
 
         {/* Call to Action */}
         <div className="text-center mt-12">
-          <a
+          <TrackingButton
+            ctaLocation={{trackingLocation}}
+            ctaText='Discuss your project'
             href="#contact"
             className="inline-flex items-center space-x-2 bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-colors duration-200"
           >
             <span>Discuss your project</span>
             <Code2 className="h-5 w-5" />
-          </a>
+          </TrackingButton>
         </div>
       </div>
     </section>

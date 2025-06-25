@@ -1,23 +1,19 @@
 
 // components/Analytics.jsx
+'use client';
 import Script from 'next/script';
-import { useRouter } from 'next/router';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import { pageview, GA_TRACKING_ID, CLARITY_PROJECT_ID } from '../lib/analytics';
 
 export default function Analytics() {
-  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
-    const handleRouteChange = (url) => {
-      pageview(url);
-    };
-
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
+    const url = `${pathname}${searchParams}`;
+    pageview(url);
+  }, [pathname, searchParams]);
 
   return (
     <>

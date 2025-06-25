@@ -4,8 +4,10 @@
 // ============================================
 import Link from 'next/link'
 import { Code2, Mail, Phone, MapPin, Twitter, Linkedin, Github } from 'lucide-react'
+import { TrackingButton } from './TrackingButton'
 
 export default function Footer() {
+  const trackingLocation = 'Footer';
   const currentYear = new Date().getFullYear()
 
   const services = [
@@ -64,12 +66,14 @@ export default function Footer() {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.name}>
-                  <a
+                  <TrackingButton
+                    ctaLocation={{trackingLocation}}
+                    ctaText={service.name}
                     href={service.href}
                     className="text-gray-300 hover:text-white transition-colors duration-200"
                   >
                     {service.name}
-                  </a>
+                  </TrackingButton>
                 </li>
               ))}
             </ul>

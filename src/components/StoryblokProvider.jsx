@@ -13,6 +13,7 @@ import Stats from './blocks/Stats'
 import Process from './blocks/Process'
 import Page from './blocks/Page'
 import FallbackComponent from './blocks/FallbackComponent'
+import { TrackingButton } from './TrackingButton'
 
 const components = {
   hero: Hero,
@@ -41,10 +42,10 @@ const storyblokInstance = storyblokInit({
     company_description: CompanyDescription,
     tech_stack: TechStack,
     services: Services,
-    case_studies: CaseStudies,
-    testimonials: Testimonials,
+    // case_studies: CaseStudies,
+    // testimonials: Testimonials,
     contact: Contact,
-    stats: Stats,
+    // stats: Stats,
     process: Process,
     page: Page
   },

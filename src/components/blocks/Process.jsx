@@ -4,8 +4,10 @@
 // ============================================
 import { storyblokEditable } from '@storyblok/react/rsc'
 import { MessageSquare, Palette, Code, Rocket } from 'lucide-react'
+import { TrackingButton } from '../TrackingButton'
 
 export default function Process({ blok }) {
+  const trackingLocation = 'Process';
   const steps = [
     {
       icon: MessageSquare,
@@ -79,13 +81,15 @@ export default function Process({ blok }) {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <a
+          <TrackingButton
+            ctaLocation={{trackingLocation}}
+            ctaText='Start your project today'
             href="#contact"
             className="inline-flex items-center space-x-2 bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-colors duration-200"
           >
             <span>Start your project today</span>
             <Rocket className="h-5 w-5" />
-          </a>
+          </TrackingButton>
         </div>
       </div>
     </section>

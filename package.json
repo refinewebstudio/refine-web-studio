@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@flags-sdk/growthbook": "^0.1.0",
+    "@growthbook/growthbook-react": "^1.6.0",
     "@storyblok/react": "^5.0.0",
     "axios": "^1.6.0",
     "framer-motion": "^10.16.0",
