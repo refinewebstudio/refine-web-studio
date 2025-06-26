@@ -19,8 +19,8 @@ export default function Footer() {
 
   const company = [
     { name: 'About Us', href: '#about' },
-    { name: 'Our Work', href: '#case-studies' },
-    { name: 'Testimonials', href: '#testimonials' },
+    // { name: 'Our Work', href: '#case-studies' },
+    // { name: 'Testimonials', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
   ]
 
@@ -49,10 +49,10 @@ export default function Footer() {
                 <Mail className="h-5 w-5 text-primary-400" />
                 <span className="text-gray-300">hello@refinewebstudio.co.uk</span>
               </div>
-              <div className="flex items-center space-x-3">
+              {/* <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-primary-400" />
                 <span className="text-gray-300">+44 121 xxx xxxx</span>
-              </div>
+              </div> */}
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-primary-400" />
                 <span className="text-gray-300">Birmingham, UK</span>
@@ -98,7 +98,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-800 mt-12 pt-8">
+        {/* <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm">
               © {currentYear} Refine Web Studio. All rights reserved.
@@ -125,7 +125,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </footer>
   )

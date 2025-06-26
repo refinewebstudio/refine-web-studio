@@ -36,11 +36,11 @@ export default function Process({ blok }) {
   ]
 
   return (
-    <section {...storyblokEditable(blok)} className="py-24 bg-gray-50">
+    <section {...storyblokEditable(blok)} id="process" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            {blok.title || 'Our proven process'}
+            {blok.title || 'Our process'}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {blok.subtitle || 'From initial consultation to launch and beyond, we follow a structured approach that ensures your project\'s success.'}
