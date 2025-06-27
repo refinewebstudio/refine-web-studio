@@ -1,11 +1,8 @@
-
-// ============================================
-// COMPONENTS/BLOCKS/CONTACT.JSX
-// ============================================
+// components/blocks/Contact.jsx
 'use client'
 import { storyblokEditable } from '@storyblok/react'
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react'
 import { TrackingButton } from '../TrackingButton'
 
 export default function Contact({ blok }) {
@@ -22,16 +19,45 @@ export default function Contact({ blok }) {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError('')
 
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitted(true)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        setSubmitted(true)
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          projectType: '',
+          budget: '',
+          message: '',
+          timeline: ''
+        })
+      } else {
+        setError(result.error || 'Something went wrong. Please try again.')
+      }
+    } catch (err) {
+      setError('Network error. Please check your connection and try again.')
+    } finally {
       setIsSubmitting(false)
-    }, 1000)
+    }
   }
 
   const handleChange = (e) => {
@@ -52,7 +78,7 @@ export default function Contact({ blok }) {
               We've received your message and will get back to you within 24 hours.
             </p>
             <TrackingButton
-              ctaLocation={{trackingLocation}}
+              ctaLocation={trackingLocation}
               ctaText='Send another message'
               onClick={() => setSubmitted(false)}
               className="text-primary-600 hover:text-primary-700 font-medium"
@@ -94,16 +120,6 @@ export default function Contact({ blok }) {
                     <div className="text-gray-600">hello@refinewebstudio.co.uk</div>
                   </div>
                 </div>
-
-                {/* <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-6 w-6 text-primary-600" />
-                  </div>
-                  <div>
-                    <div className="font-medium text-gray-900">Phone</div>
-                    <div className="text-gray-600">+44 121 xxx xxxx</div>
-                  </div>
-                </div> */}
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -154,6 +170,13 @@ export default function Contact({ blok }) {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-xl p-8 shadow-sm">
+              {error && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-3">
+                  <AlertCircle className="h-5 w-5 text-red-500 flex-shrink-0" />
+                  <p className="text-red-700">{error}</p>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
