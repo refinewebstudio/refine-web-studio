@@ -13,7 +13,8 @@ import Stats from './blocks/Stats'
 import Process from './blocks/Process'
 import Page from './blocks/Page'
 import FallbackComponent from './blocks/FallbackComponent'
-import { TrackingButton } from './TrackingButton'
+import FAQSection from './blocks/FAQSection'
+import Analytics from './blocks/Analytics'
 
 const components = {
   hero: Hero,
@@ -26,6 +27,8 @@ const components = {
   stats: Stats,
   process: Process,
   page: Page,
+  faq: FAQSection,
+  analytics: Analytics,
 }
 
 console.log('=== STORYBLOK REGISTRATION DEBUG ===')
@@ -47,7 +50,9 @@ const storyblokInstance = storyblokInit({
     contact: Contact,
     // stats: Stats,
     process: Process,
-    page: Page
+    page: Page,
+    faq: FAQSection,
+    analytics: Analytics,
   },
   fallbackComponent: FallbackComponent,
 })
