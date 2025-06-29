@@ -37,7 +37,7 @@ export default function Hero({ blok }) {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-100 rounded-full blur-3xl opacity-70"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20  mb-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
           <div className="space-y-8">
@@ -71,12 +71,12 @@ export default function Hero({ blok }) {
             <div className="flex flex-col sm:flex-row gap-4">
               <TrackingButton 
                   ctaLocation={{trackingLocation}}
-                  ctaText={blok?.secondary_button_text || 'View Our Work'}
+                  ctaText={blok?.secondary_button_text || 'Start Your Projec'}
                   href={blok?.primary_button_link || '#contact'} className="inline-flex items-center justify-center space-x-2 bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-all duration-200 group text-lg font-semibold">
                 <span>{blok?.primary_button_text || 'Start Your Project'}</span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </TrackingButton>
-              <TrackingButton
+              {/* <TrackingButton
                 ctaLocation={{trackingLocation}}
                 ctaText={blok?.primary_button_text || 'Start Your Project'}
                 href={blok?.secondary_button_link || '#case-studies'}
@@ -84,7 +84,7 @@ export default function Hero({ blok }) {
               >
                 <Play className="h-5 w-5" />
                 <span>{blok?.secondary_button_text || 'View Our Work'}</span>
-              </TrackingButton>
+              </TrackingButton> */}
             </div>
 
             {/* Stats */}

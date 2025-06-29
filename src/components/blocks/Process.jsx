@@ -3,7 +3,7 @@
 // COMPONENTS/BLOCKS/PROCESS.JSX (Bonus component)
 // ============================================
 import { storyblokEditable } from '@storyblok/react/rsc'
-import { MessageSquare, Palette, Code, Rocket } from 'lucide-react'
+import { MessageSquare, Palette, Code, Rocket, BarChart3 } from 'lucide-react'
 import { TrackingButton } from '../TrackingButton'
 
 export default function Process({ blok }) {
@@ -12,25 +12,25 @@ export default function Process({ blok }) {
     {
       icon: MessageSquare,
       title: 'Discovery & Planning',
-      description: 'We start with a detailed consultation to understand your business goals, target audience, and project requirements.',
+      description: 'We start with a detailed consultation to understand your business goals, target audience, and project requirements. We also analyze your current conversion funnel if you have an existing site.',
       duration: '1-2 days'
     },
     {
       icon: Palette,
       title: 'Design & Strategy',
-      description: 'Our team creates wireframes and designs that align with your brand while optimizing for conversions.',
+      description: 'Our team creates wireframes and designs that align with your brand while optimizing for conversions. Every element is positioned to guide visitors toward taking action.',
       duration: '3-5 days'
     },
     {
       icon: Code,
       title: 'Development & Testing',
-      description: 'We build your website using modern technologies, ensuring it\'s fast, secure, and mobile-responsive.',
+      description: 'We build your website using modern technologies with analytics tracking built-in from day one. Fast, secure, mobile-responsive, and ready to measure performance.',
       duration: '1-2 weeks'
     },
     {
-      icon: Rocket,
+      icon: BarChart3,
       title: 'Launch & Optimize',
-      description: 'After thorough testing, we launch your site and provide ongoing optimization and support.',
+      description: 'After launch, we track visitor behavior, run A/B tests, and continuously optimize your site\'s performance to maximize conversions. Ongoing support included.',
       duration: 'Ongoing'
     }
   ]
